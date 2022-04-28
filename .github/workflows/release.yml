@@ -1,7 +1,9 @@
 name: LasTools release
 
 on:
-  push
+  push:
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
 
 jobs:
   build:
@@ -15,7 +17,7 @@ jobs:
       - name: Copy deps
         run: cp -a bin/ser* bin64/
       - name: Zip asset
-        run: 7z a -tzip ./LasTools-linux.zip ./bin/*
+        run: 7z a -tzip ./LasTools-linux.zip ./bin/* '-xr!unit'
       - name: Create Release
         id: create_release
         uses: actions/create-release@latest
