@@ -1,0 +1,1 @@
+docker run -it ghcr.io/eyevi-technologies/las-tools:latest /bin/sh
