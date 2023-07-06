@@ -42,6 +42,9 @@
 #else
 #include <unistd.h>
 #endif
+#if __APPLE__
+#include <libproc.h>
+#endif
 
 #if defined(_MSC_VER) && \
     (_MSC_FULL_VER >= 150000000)
@@ -1893,6 +1896,9 @@ static FILE* open_geo_file(const char* program_name, bool pcs=true, bool vertica
     path[path_len] = '.';
     path_len = 1;
   }
+#elif __APPLE__
+  pid_t pid = getpid();
+  path_len = proc_pidpath(pid, path, MAX_GEO_PATH_LENGTH);
 #else //_WIN32
   path_len = readlink("/proc/self/exe", path, MAX_GEO_PATH_LENGTH);
 #endif //_WIN32
