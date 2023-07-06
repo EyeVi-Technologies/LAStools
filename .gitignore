@@ -9,6 +9,8 @@ lastools.opt
 bin/serf/blast
 bin/serf/potree16
 bin/*.exe
+bin64/
+build/
 *~
 .vs
 *.pdb
