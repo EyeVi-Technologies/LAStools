@@ -42,7 +42,9 @@
     implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
   
   CHANGE HISTORY:
-  
+
+
+    22 March 2022 -- Add -o parameter for user defined output file  
      1 May 2017 -- 2nd example for selective decompression for new LAS 1.4 points 
     17 May 2011 -- enabling batch processing with wildcards or multiple file names
     29 April 2011 -- created after cable outage during the royal wedding (-:
@@ -141,7 +143,7 @@ int main(int argc, char *argv[])
   {
     for (i = 1; i < argc; i++)
     {
-      if (argv[i][0] == '�') argv[i][0] = '-';
+      if (argv[i][0] == 0x96) argv[i][0] = '-';
     }
     if (!lasreadopener.parse(argc, argv)) byebye(true);
   }

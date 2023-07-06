@@ -313,7 +313,7 @@ int main(int argc, char *argv[])
   {
     for (i = 1; i < argc; i++)
     {
-      if (argv[i][0] == '–') argv[i][0] = '-';
+      if (argv[i][0] == 0x96) argv[i][0] = '-';
     }
     if (!lashistogram.parse(argc, argv)) byebye(true);
     if (!lasreadopener.parse(argc, argv)) byebye(true);
@@ -913,7 +913,7 @@ int main(int argc, char *argv[])
         edit_header = true;
 		  }
 /*
-      else if (strcmp(argv[i],"-set_evlr_description") == 0)
+      else if (strcmp(argv[i],"~set_evlr_description") == 0)
       {
         if ((i+2) >= argc)
         {
